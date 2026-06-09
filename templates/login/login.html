@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Inicio de Sesión</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <style>
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(135deg,#6a11cb,#2575fc);
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        .login-card{
+            width:100%;
+            max-width:420px;
+            border:none;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 15px 35px rgba(0,0,0,.2);
+            animation:fadeIn .5s ease;
+        }
+
+        .login-header{
+            text-align:center;
+            padding:30px 20px;
+            background:#fff;
+        }
+
+        .user-icon{
+            font-size:80px;
+            color:#2575fc;
+            margin-bottom:10px;
+        }
+
+        .login-body{
+            padding:30px;
+            background:#fff;
+        }
+
+        .form-control{
+            height:50px;
+            border-radius:10px;
+        }
+
+        .input-group-text{
+            border-radius:10px 0 0 10px;
+        }
+
+        .btn-login{
+            width:100%;
+            height:50px;
+            border:none;
+            border-radius:10px;
+            background:#2575fc;
+            color:white;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .btn-login:hover{
+            background:#1b5edb;
+            transform:translateY(-2px);
+        }
+
+        .password-toggle{
+            cursor:pointer;
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        @media(max-width:576px){
+            .login-card{
+                margin:20px;
+            }
+
+            .user-icon{
+                font-size:65px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card login-card">
+
+    <div class="login-header">
+        <div class="user-icon">
+            <i class="bi bi-person-circle"></i>
+        </div>
+        <h3 class="fw-bold">Inicio de Sesión</h3>
+        <p class="text-muted mb-0">
+            Ingrese sus credenciales para continuar
+        </p>
+    </div>
+
+    <div class="login-body">
+
+        <form method="POST" action="/login_session" class="needs-validation" novalidate>
+
+            <!-- Usuario -->
+            <div class="mb-3">
+                <label class="form-label">
+                    Usuario
+                </label>
+
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope-fill"></i>
+                    </span>
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="username"
+                        name="username"
+                        placeholder="correo@ejemplo.com"
+                        required>
+
+                    <div class="invalid-feedback">
+                        Ingrese un correo válido.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="mb-4">
+                <label class="form-label">
+                    Contraseña
+                </label>
+
+                <div class="input-group">
+
+                    <span class="input-group-text">
+                        <i class="bi bi-lock-fill"></i>
+                    </span>
+
+                    <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        name="password"
+                        placeholder="Ingrese su contraseña"
+                        minlength="6"
+                        required>
+
+                    <span
+                        class="input-group-text password-toggle"
+                        onclick="togglePassword()">
+
+                        <i id="eyeIcon" class="bi bi-eye"></i>
+
+                    </span>
+
+                    <div class="invalid-feedback">
+                        La contraseña debe contener al menos 6 caracteres.
+                    </div>
+
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-login">
+                <i class="bi bi-box-arrow-in-right"></i>
+                Iniciar Sesión
+            </button>
+
+        </form>
+        <div class="text-center mt-4">
+    <small class="text-muted">
+        <i class="bi bi-arrow-left-circle"></i>
+        ¿No cuentas con credenciales?
+        <a href="{{url_for('home')}}" class="text-decoration-none fw-semibold">
+            Regresar
+        </a>
+    </small>
+</div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    // Mostrar/Ocultar contraseña
+    function togglePassword() {
+
+        const password = document.getElementById("password");
+        const eyeIcon = document.getElementById("eyeIcon");
+
+        if(password.type === "password"){
+            password.type = "text";
+            eyeIcon.classList.replace("bi-eye","bi-eye-slash");
+        }else{
+            password.type = "password";
+            eyeIcon.classList.replace("bi-eye-slash","bi-eye");
+        }
+    }
+
+    // Validaciones Bootstrap
+    (() => {
+        'use strict'
+
+        const forms = document.querySelectorAll('.needs-validation')
+
+        Array.from(forms).forEach(form => {
+
+            form.addEventListener('submit', event => {
+
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+
+            }, false)
+
+        })
+
+    })();
+
+</script>
+
+</body>
+</html>

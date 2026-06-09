@@ -1,0 +1,60 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Agregar Nuevo Auto</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/agregar_auto" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="modelo">Modelo:</label>
+                            <input type="text" class="form-control" id="modelo" name="modelo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anio" class="titulos">Año:</label>
+                            <select name="anio" class="form-control" id="anio" required>
+                                <option value="">Selcciona el año</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                            </select>
+                            <label for="km" class="titulos">Km:</label>
+                            <input type="text" class="form-control" id="km" name="km" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="marca">Marca:</label>
+                            <input type="text" class="form-control" id="marca" name="marca" required>
+                            <div class="form-group">
+                                <label for="descripcion">Descripcion:</label>
+                                <textarea name="descripcion" class="form-control" id="descripcion"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio_unidad">Precio en lista:</label>
+                            <input type="number" class="form-control" id="precio_unidad" name="precio_unidad" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="imagen">Imagen:</label>
+                            <input type="file" id="imagen" name="imagen" multiple onchange="handleImageSelection(event)"
+                                required>
+                            <div id="imagenPreview"></div>
+                            <textarea id="imageList" name="imageList" style="display: none;"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Agregar Auto</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

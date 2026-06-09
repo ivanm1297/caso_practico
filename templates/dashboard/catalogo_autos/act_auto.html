@@ -1,0 +1,68 @@
+<div class="modal" id="actAutoModal{{catalogo.id_auto}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Actualizar</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('actualizar_auto',id_auto=catalogo.id_auto)}}" method="post"
+                    enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="act_modelo">Modelo:</label>
+                        <input type="text" class="form-control" id="act_modelo" name="act_modelo"
+                            value="{{catalogo.modelo}}">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="act_anio" class="titulos">Año:</label>
+                        <select name="act_anio" class="form-control" id="act_anio">
+                            <option value="">{{catalogo.anio}}</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                        <label for="act_km" class="titulos">Km:</label>
+                        <input type="text" class="form-control" id="act_km" name="act_km"
+                            placeholder="{{catalogo.km}}">
+                    </div>                
+                   
+                    
+                    <div class="form-group">
+                        <label for="act_marca">Marca:</label>
+                        <input type="text" class="form-control" id="act_marca" name="act_marca"
+                            placeholder="{{catalogo.marca}}">
+                        <div class="form-group">
+                            <label for="act_descripcion">Descripcion:</label>
+                            <textarea name="act_descripcion" class="form-control" id="act_descripcion"
+                                placeholder="{{catalogo.descripcion}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="act_precio_unidad">Precio unidad:</label>
+                        <input type="number" class="form-control" id="act_precio_unidad" name="act_precio_unidad"
+                            placeholder="{{catalogo.precio_unidad}}">
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="act_imagen">Imagen:</label>
+                        <input type="file" id="act_imagen" name="act_imagen" multiple
+                            onchange="handleImageSelection(event)">
+                        <div id="imagenPreview"></div>
+                        <textarea id="imageList" name="imageList" style="display: none;"></textarea>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

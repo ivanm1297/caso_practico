@@ -1,0 +1,149 @@
+.navbar {
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    transition: all .3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #f8d7da !important;
+    transform: translateY(-2px);
+}
+
+.navbar .btn-light {
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+/* Contenedor del carrusel */
+
+/* Altura fija del carrusel */
+.carousel-inner {
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Imágenes */
+.img-fixed-height {
+    width: 500px;
+    height: 500px;
+    object-fit:inherit;
+    object-position: center;
+}
+
+/* Indicadores */
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+/* Flechas */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 8%;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    .carousel-inner {
+        height: 350px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    .carousel-inner {
+        height: 250px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 576px) {
+    .carousel-inner {
+        height: 180px;
+    }
+}
+
+a .img_logo{
+    height: 65px;
+    width: 200px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.descrip_empresa{
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+/* Sobre nosotros */
+.sobre-nosotros{
+    border-radius: 20px;
+    background: #fff;
+}
+
+.titulo-seccion{
+    color: #800020;
+    font-weight: 700;
+}
+
+.descrip_empresa{
+    text-align: justify;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Cards */
+.card-info{
+    border-radius: 20px;
+    transition: all .3s ease;
+    overflow: hidden;
+}
+
+.card-info:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.15) !important;
+}
+
+.icono-card{
+    text-align: center;
+    font-size: 3rem;
+    color: #800020;
+    margin-bottom: 15px;
+}
+
+.card-title{
+    color: #800020;
+    font-weight: 700;
+}
+
+.card-text{
+    text-align: justify;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* Responsive */
+@media(max-width:768px){
+
+    .titulo-seccion{
+        text-align:center;
+    }
+
+    .card-info{
+        margin-bottom: 15px;
+    }
+
+}

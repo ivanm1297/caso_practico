@@ -1,0 +1,64 @@
+ <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Agregar
+    </button>
+    <br>
+    {% include 'dashboard/catalogo_autos/reg_auto.html' %}
+
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Km</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for catalogo in catalogo %}
+            <tr>
+                <td>{{ catalogo.id_auto }}</td>
+                <td>{{ catalogo.marca }}</td>
+                <td>{{ catalogo.modelo }}</td>
+                <td>{{ catalogo.anio }}</td>
+                <td>{{ catalogo.km }}</td>
+                <td>{{ catalogo.descripcion }}</td>
+                <td>${{ "{:,.2f}".format(catalogo.precio_unidad) }}</td>
+                <td>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for imagen in catalogo.imagen.split(',') %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img class="foto_2" src="{{ url_for('static', filename='image/catalogo/' + imagen) }}">
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </td>
+                <td class="d-print-none">
+                    <a class="btn btn-outline-danger" href="{{ url_for('eliminar_auto', id_auto=catalogo.id_auto) }}"
+                        onclick="return confirm('¿Estás seguro de que deseas eliminar este auto?')"
+                        style="border-radius: 5px;">
+                        <wa-icon name="trash" variant="thin"></wa-icon> </a>
+
+                </td>
+                <td>
+                    <a class="btn btn-outline-success" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#actAutoModal{{catalogo.id_auto}}">
+                        <wa-icon name="pen-to-square" variant="regular"></wa-icon>
+                    </a>
+                    <br>
+                    {% include 'dashboard/catalogo_autos/act_auto.html' %}
+
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>

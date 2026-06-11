@@ -6,5 +6,5 @@ DATABASE_URI = (
     f"{os.getenv('MYSQLPASSWORD')}@"
     f"{os.getenv('MYSQLHOST')}:"
     f"{os.getenv('MYSQLPORT')}/"
-    f"{os.getenv('MYSQLDATABASE')}"
+    f"{os.getenv('MYSQL_DATABASE')}"
 )

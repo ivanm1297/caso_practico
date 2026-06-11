@@ -233,5 +233,6 @@ def logout():
     session.pop('administrador_id', None)  # Elimina la variable de sesión
     return redirect(url_for('login'))  # Redirige al usuario a la página de inicio de sesión
 
-if __name__ == '__main__':
-    app.run("0.0.0.0", 8081, debug=True)
+if _name_ == '_main_':
+    port = int(os.environ.get("PORT", 8081))
+    app.run(host="0.0.0.0", port=port, debug=False)

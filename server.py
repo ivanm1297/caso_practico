@@ -178,16 +178,22 @@ def actualizar_auto(id_auto):
 
     
     if act_modelo != None and act_modelo != '':
-        catalogo.modelo_auto = act_modelo
+        catalogo.modelo = act_modelo
         
     if act_anio != None and act_anio != '':
-        catalogo.año_auto= act_anio
+        catalogo.anio= act_anio
     
     if act_km != None and act_km != '':
-        catalogo.km_auto = act_km
+        catalogo.km = act_km
+        
+    if act_marca != None and act_marca != '':
+        catalogo.marca = act_marca
+    
+    if act_descripcion != None and act_descripcion != '':
+        catalogo.descripcion = act_descripcion
     
     if act_precio_unidad != None and act_precio_unidad != '':
-        catalogo.precio_lista = act_precio_unidad
+        catalogo.precio_unidad = act_precio_unidad
         
     nuevas_imagenes = request.files.getlist('act_imagen')
 
